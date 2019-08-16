@@ -6,7 +6,7 @@ cl_state *cl_states[16];
 miner_state *miner_states[16];
 
 // TODO: make this configurable
-size_t num_threads = 1 << 20;
+size_t num_threads = 1 << 30;
 
 extern "C" {
 
