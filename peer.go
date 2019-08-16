@@ -160,12 +160,12 @@ func (p *Peer) run() {
 
 	// handle pongs
 	p.conn.SetPongHandler(func(string) error {
-		p.conn.SetReadDeadline(time.Now().Add(pongWait))
+//		p.conn.SetReadDeadline(time.Now().Add(pongWait))
 		return nil
 	})
 
 	// set initial read deadline
-	p.conn.SetReadDeadline(time.Now().Add(pongWait))
+//	p.conn.SetReadDeadline(time.Now().Add(pongWait))
 
 	// reader loop
 	for {
