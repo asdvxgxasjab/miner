@@ -7,7 +7,7 @@ cd build
 cmake ..
 make
 sudo make install
-cd ../../client
+cd ../../miner
 go build
 cp ../opencl/cruzbit.cl .
 LD_LIBRARY_PATH=/usr/local/lib ./miner -pubkey <your public key> -peer <pool address>
