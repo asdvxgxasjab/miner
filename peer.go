@@ -142,8 +142,9 @@ func (p *Peer) run() {
 				}
 
 				// send outgoing submit_work message to peer
+				m := Message{Type: "submit_work", Body: sw}
 				p.conn.SetWriteDeadline(time.Now().Add(writeWait))
-				if err := p.conn.WriteJSON(sw); err != nil {
+				if err := p.conn.WriteJSON(m); err != nil {
 					log.Printf("Write error: %s, to: %s\n", err, p.conn.RemoteAddr())
 					p.conn.Close()
 				}
@@ -160,12 +161,12 @@ func (p *Peer) run() {
 
 	// handle pongs
 	p.conn.SetPongHandler(func(string) error {
-//		p.conn.SetReadDeadline(time.Now().Add(pongWait))
+		//		p.conn.SetReadDeadline(time.Now().Add(pongWait))
 		return nil
 	})
 
 	// set initial read deadline
-//	p.conn.SetReadDeadline(time.Now().Add(pongWait))
+	//	p.conn.SetReadDeadline(time.Now().Add(pongWait))
 
 	// reader loop
 	for {
